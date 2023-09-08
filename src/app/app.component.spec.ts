@@ -1,11 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { ExerciciosComponent } from './components/exercicios/exercicios.component';
 
 describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
     imports: [RouterTestingModule],
-    declarations: [AppComponent]
+    declarations: [AppComponent,ExerciciosComponent]
   }));
 
   it('should create the app', () => {
@@ -26,4 +27,5 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('M03S06-Exercicios1_a_7 app is running!');
   });
+  
 });
