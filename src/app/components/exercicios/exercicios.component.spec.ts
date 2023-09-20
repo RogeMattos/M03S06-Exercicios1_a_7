@@ -37,7 +37,7 @@ describe('ExerciciosComponent', () => {
   //-------------------------------------------------------------------------------------------
   it('deve adicionar ao início do array quando chamado', () => {
     const comida = 'Pizza';
-    const arrayOriginal = ['Hamburguer', 'Sushi', 'Taco'];
+    const arrayOriginal = ['Hamburguer', 'Sushi', 'Taco', 'Lasanha'];
 
     component.comidas = [...arrayOriginal];
     component.adicionarComidaNoInicio(comida);
@@ -113,18 +113,28 @@ describe('ExerciciosComponent', () => {
   //-------------------------------------------------------------------------------------------
   //exercício 06
   //-------------------------------------------------------------------------------------------
-  it('deve chamar o método validacao() ao clicar no botão', () => {
-    // Espie o método validacao()
-    spyOn(component, 'validacao');
+  it(`${ExerciciosComponent.prototype.enviarDados.name} 
+  deve entrar no metodo validacao quando executado`, 
+()=>{
+  spyOn(component, 'validacao');
+  
+  component.enviarDados();
 
-    // Dispare o evento de clique no botão
-    const button = fixture.debugElement.query(By.css('button'));
-    button.triggerEventHandler('click', null);
+  expect(component.validacao).toHaveBeenCalled();
+})
+  //-------------------------------------------------------------------------------------------
+  //exercício 07
+  //-------------------------------------------------------------------------------------------
+  it(`${ExerciciosComponent.prototype.verificaPosicao.name} 
+  deve retornar o item quando encontrar.`, 
+  
+()=>{
+  const arrayOriginal = ['Hamburguer', 'Sushi', 'Taco', 'Lasanha', 'Pizza'];
+  component.comidas = [...arrayOriginal];
 
-    // Verifique se o método validacao() foi chamado
-    expect(component.validacao).toHaveBeenCalled();
-  });
 
+expect(component.comidas).toContain('Pizza');
+})
 
 
 });

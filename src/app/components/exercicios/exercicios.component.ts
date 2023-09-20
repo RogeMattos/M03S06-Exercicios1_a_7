@@ -63,8 +63,18 @@ export class ExerciciosComponent {
     this.validacaoChamada = true;
   }
 
-
-  
+//-------------------------------------------------------------------------------------------
+  //exercício 07
+  //-------------------------------------------------------------------------------------------
+  verificaPosicao(item:string){
+    let index = this.comidas.indexOf(item);
+    // console.log(index);
+    if(index != -1){
+      return item;
+    }else{
+      throw new Error("Item não encontrado");
+    }
+  }
   
 
 
